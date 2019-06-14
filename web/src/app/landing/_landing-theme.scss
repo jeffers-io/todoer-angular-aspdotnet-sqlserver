@@ -1,0 +1,44 @@
+@mixin landing-theme($theme) {
+  $primary: map-get($theme, primary);
+  $foreground: map-get($theme, foreground);
+
+  td-landing-view {
+    .app-header,
+    .app-footer,
+    .app-footer > a {
+      color: mat-color($primary, default-contrast);
+      background-color: mat-color($primary);
+    }
+
+    mat-grid-list {
+      color: mat-color($foreground, default);
+      .feature {
+        display: flex;
+        align-items: center;
+
+        .icon {
+          $icon-size: 120px;
+          font-size: $icon-size;
+          height: $icon-size;
+          line-height: 1;
+        }
+
+        @media (max-width: 600px) {
+          .icon {
+            $icon-size: 28px;
+            font-size: $icon-size;
+            height: $icon-size;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    @media (max-width: 600px) {
+      mat-grid-list {
+        $body-margin: 10vw;
+        margin-left: $body-margin;
+        margin-right: $body-margin;
+      }
+    }
+  }
+}
